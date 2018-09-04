@@ -9,7 +9,11 @@ export default class Stack {
   }
 
   pop(x) {
-    this.list[--this.top] = x;
+    this.list.splice(-1, 1);
+  }
+
+  isEmpty() {
+    return !this.list.length
   }
 
   get length() {
