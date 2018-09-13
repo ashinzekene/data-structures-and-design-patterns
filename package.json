@@ -1,0 +1,26 @@
+{
+  "name": "ds-algos",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "xo --spaces"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashinzekene/algorithms-and-datastructures.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashinzekene/algorithms-and-datastructures/issues"
+  },
+  "homepage": "https://github.com/ashinzekene/algorithms-and-datastructures#readme",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "xo": "^0.23.0"
+  }
+}
