@@ -5,15 +5,6 @@ module.exports = function (str) {
 		throw new TypeError(`Expected a string not ${typeof str}`);
 	}
 	const s = new Stack();
-	for (let z = 0; z < 4; z++) {
-		s.push(3);
-		console.log(s.length);
-		s.pop(3);
-		console.log(s.length);
-		console.log(s);
-	}
-	s.isEmpty();
-
 	let bal = true;
 	for (const ch of str) {
 		if (ch === '(') {
@@ -24,11 +15,8 @@ module.exports = function (str) {
 				break;
 			} else {
 				s.pop();
-				console.log(s.length);
 			}
 		}
 	}
-	console.log(s.isEmpty());
-	console.log(bal);
 	return s.isEmpty() && bal;
 };

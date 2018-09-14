@@ -6,7 +6,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "xo --spaces"
+    "lint": "xo --spaces",
+    "test": "ava"
   },
   "repository": {
     "type": "git",
