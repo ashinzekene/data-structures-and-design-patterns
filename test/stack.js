@@ -19,7 +19,7 @@ test(`Stack - push, length, peek`, t => {
   stack.push(9);
   t.is(stack.length, 9);
   t.is(stack.peek(), 9);
-  t.is(stack.toString(), '123456789')
+  t.is(stack.toString(), '123456789');
 })
 
 test(`Stack - pop, isEmpty`, t => {
@@ -27,7 +27,7 @@ test(`Stack - pop, isEmpty`, t => {
   stack.pop();
   t.is(stack.length, 6);
   t.false(stack.isEmpty());
-  t.is(stack.toString(), '123456')
+  t.is(stack.toString(), '123456');
 })
 
 test(`Stack - pop, toString`, t => {

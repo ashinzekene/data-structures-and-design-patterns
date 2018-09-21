@@ -1,11 +1,13 @@
-/**
- * A stack is a list of elements that are accessible
- * only from one end of the list, which is called the top
- */
 module.exports = class Stack {
-	constructor() {
+  /**
+   * A stack is a list of elements that are accessible
+   * only from one end of the list, which is called the top
+   * @param {String} name Name of the stack
+   */
+	constructor(name = 'stack') {
 		this.list = [];
-		this.top = 0;
+    this.top = 0;
+    this.name = x;
   }
 
   /**
@@ -59,8 +61,23 @@ module.exports = class Stack {
   /**
    * Returns a string representation of the elements in the stack
    * @param {String} delimiter A seperator to seperate each element in the stack
+   * @returns {String} the stack
    */
-	toString(delimiter = '') {
+	toString(delimiter = ',') {
 		return this.list.join(delimiter);
-	}
+  }
+
+  // Juicy Stuff
+
+  get [Symbol.toStringTag]() { return 'Queue' };
+
+  [Symbol.iterator]() {
+    let i = 0;
+    return {
+      // Using arrow function because of scope [this]
+      next: () => {
+        return { value: this.list[i], done: i < this.list.length - 1 };
+      }
+    }
+  }
 };

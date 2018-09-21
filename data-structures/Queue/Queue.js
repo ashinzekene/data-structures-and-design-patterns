@@ -1,6 +1,12 @@
 module.exports = class Queue {
-  constructor() {
+  /**
+   * A queue is a type of list where data are inserted at the end and are removed from the
+   * front. Queues are used to store data in the order in which they occur
+   * @param {String} name The name of the queue
+   */
+  constructor(name = 'queue') {
     this.dataStore = [];
+    this.name = name;
   }
 
   /**
@@ -16,7 +22,7 @@ module.exports = class Queue {
    * @returns {any} the element removed from the queue
    */
   dequeue(x) {
-    return this.dataStore.shift()
+    return this.dataStore.shift();
   }
 
   /**
@@ -58,10 +64,26 @@ module.exports = class Queue {
 
   /**
    * Returns a string representation of the elements in the queue
-   * @param {String} delimiter The string to serve as delimiter when joining elemnts in the queue
+   * @param {String} delimiter The string to serve as delimiter when joining elements in the queue
+   * @returns {String} the queue
    */
-  toString(delimiter = '') {
+  toString(delimiter = ',') {
     return this.dataStore.join(delimiter);
+  }
+
+  // Juicy Stuff
+
+  get [Symbol.toStringTag]() { return 'Stack' };
+
+  [Symbol.iterator]() {
+    let i = -1
+    let inital = this.dataStore[0]
+    return {
+      next: () => {
+        i++
+        return { value: this.dataStore[i], done: i > this.dataStore.length - 1 };
+      }
+    }
   }
 
 }
