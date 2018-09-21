@@ -1,6 +1,6 @@
-const Queue = require('./data-structures/Queue/Queue');
-const PriorityQueue = require('./data-structures/Queue/PriorityQueue');
-const Stack = require('./data-structures/Stack/Stack');
+const Queue = require('./Queue/Queue');
+const PriorityQueue = require('./Queue/PriorityQueue');
+const Stack = require('./Stack/Stack');
 
 const q = new Stack('iter-queue');
 const p = new PriorityQueue('iter-queue');
