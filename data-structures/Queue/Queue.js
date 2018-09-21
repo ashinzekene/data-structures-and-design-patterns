@@ -11,7 +11,8 @@ module.exports = class Queue {
 
   /**
    * Add elements to the queue
-   * @param  {any} x item to add to the queue
+   * @param {any} x item to add to the queue
+   * @returns {Number} returns the lenth of th queue
    */
   enqueue(x) {
     return this.dataStore.push(x);

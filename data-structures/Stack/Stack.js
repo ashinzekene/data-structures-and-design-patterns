@@ -72,10 +72,10 @@ module.exports = class Stack {
   get [Symbol.toStringTag]() { return 'Queue' };
 
   [Symbol.iterator]() {
-    let i = 0;
+    let i = this.list.length - 1;
     return {
       next: (function() {
-        return { value: this.list[i++], done: i > this.list.length - 1 };
+        return { value: this.list[i--], done: i < -1 };
       }).bind(this)
     }
   }

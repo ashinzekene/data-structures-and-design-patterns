@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "xo --spaces",
-    "test": "ava"
+    "test": "ava -v"
   },
   "repository": {
     "type": "git",
