@@ -11,8 +11,6 @@ q.enqueue(6);
 q.enqueue(7);
 q.enqueue(8);
 
-console.log(String(q))
-
 for (x of q) {
   console.log(x);
 }

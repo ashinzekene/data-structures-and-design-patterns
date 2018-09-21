@@ -7,7 +7,7 @@ module.exports = class Stack {
 	constructor(name = 'stack') {
 		this.list = [];
     this.top = 0;
-    this.name = x;
+    this.name = name;
   }
 
   /**
@@ -74,10 +74,9 @@ module.exports = class Stack {
   [Symbol.iterator]() {
     let i = 0;
     return {
-      // Using arrow function because of scope [this]
-      next: () => {
-        return { value: this.list[i], done: i < this.list.length - 1 };
-      }
+      next: (function() {
+        return { value: this.list[i++], done: i > this.list.length - 1 };
+      }).bind(this)
     }
   }
 };

@@ -76,13 +76,9 @@ module.exports = class Queue {
   get [Symbol.toStringTag]() { return 'Stack' };
 
   [Symbol.iterator]() {
-    let i = -1
-    let inital = this.dataStore[0]
+    let i = 0
     return {
-      next: () => {
-        i++
-        return { value: this.dataStore[i], done: i > this.dataStore.length - 1 };
-      }
+      next: () => ({ value: this.dataStore[i++], done: i > this.dataStore.length - 1 }),
     }
   }
 
