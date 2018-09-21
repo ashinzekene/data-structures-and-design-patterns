@@ -1,6 +1,7 @@
 const test = require('ava');
 const Queue = require('../data-structures/Queue/Queue');
 const PriorityQueue = require('../data-structures/Queue/PriorityQueue');
+const radixSort = require('../data-structures/Queue/radix-sort');
 
 const queue = new Queue();
 
@@ -70,4 +71,13 @@ test(`PriorityQueue - dequeues based on priority`, t => {
   t.deepEqual(pq.dequeue()[0], { name: 'Emeka', priority: 3 });
   t.deepEqual(pq.dequeue()[0], { name: 'Ade', priority: 5 });
   t.deepEqual(pq.dequeue()[0], { name: 'Me', priority: 7 });
+})
+
+test(`Radix Sort`, t => {
+  const nums = Array(50).fill(0).map(() => Math.ceil(Math.random()* 99));
+  const res = radixSort(nums);
+  const x = [...res];
+  res.sort((x, y) => x - y);
+  t.true(true);
+  t.deepEqual(x, res);
 })
