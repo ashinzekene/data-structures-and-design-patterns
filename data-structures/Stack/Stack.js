@@ -1,3 +1,7 @@
+/**
+ * A stack is a list of elements that are accessible
+ * only from one end of the list, which is called the top
+ */
 module.exports = class Stack {
 	constructor() {
 		this.list = [];
@@ -14,7 +18,7 @@ module.exports = class Stack {
 
   /**
    * removes an element from the stack
-   * @return the element removed
+   * @return {any} the element removed
    */
 	pop() {
 		return this.list.pop();
@@ -22,7 +26,7 @@ module.exports = class Stack {
 
   /**
    * checks if the stack is empty
-   * @return {Boolean}
+   * @return {Boolean} returns true if queue is empty
    */
 	isEmpty() {
 		return !this.list.length;
@@ -30,6 +34,7 @@ module.exports = class Stack {
 
   /**
    * Returns the length of the elements in the stack
+   * @returns {Number} the length of items in the array
    */
 	get length() {
 		return this.list.length;
@@ -53,9 +58,9 @@ module.exports = class Stack {
 
   /**
    * Returns a string representation of the elements in the stack
-   * @param {String} sep A seperator to seperate each element in the stack
+   * @param {String} delimiter A seperator to seperate each element in the stack
    */
-	toString(sep = '') {
-		return this.list.join(sep);
+	toString(delimiter = '') {
+		return this.list.join(delimiter);
 	}
 };
