@@ -73,7 +73,7 @@ test(`PriorityQueue - dequeues based on priority`, t => {
   t.deepEqual(pq.dequeue()[0], { name: 'Me', priority: 7 });
 })
 
-test(`Radix Sort`, t => {
+test(`Queue - Radix Sort`, t => {
   const nums = Array(50).fill(0).map(() => Math.ceil(Math.random()* 99));
   const res = radixSort(nums);
   const x = [...res];

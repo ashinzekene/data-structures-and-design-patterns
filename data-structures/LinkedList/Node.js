@@ -5,8 +5,8 @@ module.exports = class Node {
    */
   constructor(element) {
     this.element = element;
-    this.node = null;
+    this.next = null;
   }
 
-  [Symbol.toStringTag]() { return 'Node' }
+  get [Symbol.toStringTag]() { return 'Node' }
 }
