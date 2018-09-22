@@ -7,19 +7,20 @@ module.exports = class PriorityQueue extends Queue {
    * @extends Queue
    * @param {String} name The name of the queue
    */
+  /* eslint-disable no-useless-constructor */
   constructor(name) {
     super(name);
   }
 
   /**
    * Adds items to the queue
-   * @param {{ priority: Number, ...any}} x Items to add to the queue. **Must** have a priority key
+   * @param {{ priority: Number, any}} x Items to add to the queue. **Must** have a priority key
    */
   enqueue(x) {
     if (typeof x.priority !== 'number') {
-      throw new Error('Items added to a priority queue should have a priority property');
+      throw new TypeError('Items added to a priority queue should have a priority property');
     }
-    super.enqueue(x)
+    super.enqueue(x);
   }
 
   /**
@@ -30,7 +31,7 @@ module.exports = class PriorityQueue extends Queue {
   dequeue() {
     let lowestPriority = this.dataStore[0].priority;
     let index = 0;
-    for (let x in this.dataStore) {
+    for (const x in this.dataStore) {
       if (this.dataStore[x].priority < lowestPriority) {
         lowestPriority = this.dataStore[x].priority;
         index = x;
@@ -38,4 +39,4 @@ module.exports = class PriorityQueue extends Queue {
     }
     return this.dataStore.splice(index, 1);
   }
-}
+};

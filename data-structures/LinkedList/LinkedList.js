@@ -2,14 +2,14 @@ const Node = require('./Node');
 
 module.exports = class LinkedList {
   constructor(name = 'LList') {
-    this.head = new Node('head')
+    this.head = new Node('head');
     this.name = name;
   }
 
   /**
    * Finds node which contains the item sent
    * @param {any} item The content of the node to find
-   * @returns {Node || null} the node found
+   * @returns {Node | null} the node found
    */
   find(item) {
     let currNode = this.head;
@@ -39,13 +39,14 @@ module.exports = class LinkedList {
    * Inserts a new node after another node
    * @param {any} element The content of the new Node to append
    * @param {any} item The contents of the node to insert new node after
+   * @returns {Boolean} true if successfull, false if otherwise
    */
   insert(element, item) {
     const newNode = new Node(element);
     const prevNode = this.find(item);
     if (!prevNode) {
       console.log('Cannot insert new node, cannot find node to insert after');
-      return false
+      return false;
     }
     newNode.next = prevNode.next;
     prevNode.next = newNode;
@@ -55,12 +56,13 @@ module.exports = class LinkedList {
   /**
    * Removes a node based on its contents
    * @param {any} item item to used to search for node to remove
+   * @returns {Boolean} true if successfull, false if otherwise
    */
   remove(item) {
     let currNode = this.head;
     while (currNode.next.element !== item) {
       if (currNode.next === null) {
-        return false
+        return false;
       }
       currNode = currNode.next;
     }
@@ -73,7 +75,7 @@ module.exports = class LinkedList {
    */
   get size() {
     let n = 0;
-    let currNode =  this.head;
+    let currNode = this.head;
     while (currNode.next !== null) {
       currNode = currNode.next;
       n++;
@@ -94,12 +96,11 @@ module.exports = class LinkedList {
    */
   toString() {
     let currNode = this.head.next;
-    let result = [];
+    const result = [];
     while (currNode !== null) {
       result.push(currNode.element);
       currNode = currNode.next;
     }
     return result.join(',');
   }
-
-}
+};

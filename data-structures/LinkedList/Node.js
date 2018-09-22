@@ -8,5 +8,7 @@ module.exports = class Node {
     this.next = null;
   }
 
-  get [Symbol.toStringTag]() { return 'Node' }
-}
+  get [Symbol.toStringTag]() {
+    return 'Node';
+  }
+};

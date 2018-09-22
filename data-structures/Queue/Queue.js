@@ -22,7 +22,7 @@ module.exports = class Queue {
    * Remove elements to the queue
    * @returns {any} the element removed from the queue
    */
-  dequeue(x) {
+  dequeue() {
     return this.dataStore.shift();
   }
 
@@ -74,13 +74,14 @@ module.exports = class Queue {
 
   // Juicy Stuff
 
-  get [Symbol.toStringTag]() { return 'Stack' };
-
-  [Symbol.iterator]() {
-    let i = 0
-    return {
-      next: () => ({ value: this.dataStore[i++], done: i > this.dataStore.length - 1 }),
-    }
+  get [Symbol.toStringTag]() {
+    return 'Stack';
   }
 
-}
+  [Symbol.iterator]() {
+    let i = 0;
+    return {
+      next: () => ({value: this.dataStore[i++], done: i > this.dataStore.length - 1})
+    };
+  }
+};

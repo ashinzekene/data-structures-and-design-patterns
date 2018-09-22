@@ -6,7 +6,8 @@
     "test": "test"
   },
   "scripts": {
-    "lint": "xo --spaces",
+    "lint": "xo",
+    "lint:fix": "xo --fix",
     "test": "ava -v"
   },
   "repository": {
@@ -23,5 +24,11 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "xo": "^0.23.0"
+  },
+  "xo": {
+    "space": 2,
+    "rules": {
+      "unicorn/filename-case": "off"
+    }
   }
 }
