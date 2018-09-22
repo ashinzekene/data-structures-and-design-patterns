@@ -1,9 +1,20 @@
 const Node = require('./Node');
 
 module.exports = class LinkedList {
+  // TODO: function removeAt(index)
+  // TODO: function elementAt(index)
+  // TODO: function addAt(index)
+  // TODO: function indexOf(index)
+
+  /**
+   * A linked list is a collection of objects called nodes. Each node is linked
+   * to a successor node in the list using an object referenc
+   * @param {String} name Name of the list
+   */
   constructor(name = 'LList') {
-    this.head = new Node('head');
+    this.head = null;
     this.name = name;
+    this.length = 0;
   }
 
   /**
@@ -28,11 +39,17 @@ module.exports = class LinkedList {
    */
   append(element) {
     const newNode = new Node(element);
+    if (this.head === null) {
+      this.head = newNode;
+      this.length++;
+      return;
+    }
     let prevNode = this.head;
     while (prevNode.next) {
       prevNode = prevNode.next;
     }
     prevNode.next = newNode;
+    this.length++;
   }
 
   /**
@@ -50,6 +67,7 @@ module.exports = class LinkedList {
     }
     newNode.next = prevNode.next;
     prevNode.next = newNode;
+    this.length++;
     return true;
   }
 
@@ -60,13 +78,21 @@ module.exports = class LinkedList {
    */
   remove(item) {
     let currNode = this.head;
+    if (this.head === null) {
+      return false;
+    }
     while (currNode.next.element !== item) {
       if (currNode.next === null) {
         return false;
       }
       currNode = currNode.next;
     }
+    // If head is removed
+    if (currNode.next === this.head) {
+      this.head = currNode.next.next;
+    }
     currNode.next = currNode.next.next;
+    this.length--;
     return true;
   }
 
@@ -74,20 +100,24 @@ module.exports = class LinkedList {
    * Returns the number of links present on a linked list
    */
   get size() {
-    let n = 0;
-    let currNode = this.head;
-    while (currNode.next !== null) {
-      currNode = currNode.next;
-      n++;
-    }
-    return n;
+    return this.length;
   }
 
   /**
    * Clear the linked list leaving the head
    */
   clear() {
-    this.head.next = null;
+    this.length = 0;
+    this.head = null;
+  }
+
+  /**
+   * Checks if the linked list is empty
+   * @returns {Boolean} true if list is empty
+   */
+  isEmpty() {
+    // OR return this.length !== 0;
+    return this.head === null;
   }
 
   /**
@@ -95,7 +125,7 @@ module.exports = class LinkedList {
    * @returns {[Node]} An array containing
    */
   toString() {
-    let currNode = this.head.next;
+    let currNode = this.head;
     const result = [];
     while (currNode !== null) {
       result.push(currNode.element);

@@ -39,8 +39,8 @@ test('Linked List - append, size, find', t => {
   t.deepEqual(lList.find(9).next, new Node(10));
 });
 
-test('Linked List - toString', t => {
+test('Linked List - toString, clear, isEmpty', t => {
   t.is(lList.toString().split(',').length, lList.size);
-  console.log(lList.toString());
-  t.is(true, true);
+  lList.clear();
+  t.true(lList.isEmpty());
 });
