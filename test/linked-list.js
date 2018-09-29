@@ -27,6 +27,7 @@ test('Linked List - remove, size, find', t => {
   lList.remove(4);
   lList.remove(3);
   t.is(lList.size, 6);
+  t.false(lList.remove(30));
   t.is(lList.find(4), null);
   t.is(lList.find(3), null);
 });

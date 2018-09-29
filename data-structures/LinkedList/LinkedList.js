@@ -8,7 +8,7 @@ module.exports = class LinkedList {
 
   /**
    * A linked list is a collection of objects called nodes. Each node is linked
-   * to a successor node in the list using an object referenc
+   * to a successor node in the list using an object reference
    * @param {String} name Name of the list
    */
   constructor(name = 'LList') {
@@ -82,10 +82,10 @@ module.exports = class LinkedList {
       return false;
     }
     while (currNode.next.element !== item) {
+      currNode = currNode.next;
       if (currNode.next === null) {
         return false;
       }
-      currNode = currNode.next;
     }
     // If head is removed
     if (currNode.next === this.head) {
