@@ -4,4 +4,4 @@ module.exports = class BSTNode {
     this.left = null;
     this.right = null;
   }
-}
+};

@@ -15,7 +15,7 @@
       "skipFiles": [
         "<node_internals>/**/*.js"
       ]
-    }P
+    }
 
   ]
 }

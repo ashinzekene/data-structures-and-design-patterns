@@ -2,7 +2,6 @@ const test = require('ava');
 const DoubleLinkedList = require('../data-structures/DoubleLinkedList/DoubleLinkedList');
 const Node = require('../data-structures/DoubleLinkedList/Node');
 
-
 const lList = new DoubleLinkedList();
 
 test.beforeEach(() => {
@@ -38,11 +37,10 @@ test('Linked List - append, size, find', t => {
   lList.insert(9, 8);
   t.is(lList.size, 10);
   t.is(lList.find(8).next.element, 9);
-  t.deepEqual(lList.find(9).next, new Node(10));
+  t.deepEqual(lList.find(9).next.element, 10);
 });
 
-test('Linked List - toString, clear, isEmpty', t => {
-  t.is(lList.toString().split(',').length, lList.size);
+test('Linked List - clear, isEmpty', t => {
   lList.clear();
   t.true(lList.isEmpty());
 });
