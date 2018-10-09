@@ -1,6 +1,6 @@
 const test = require('ava');
 const BST = require('../data-structures/BinarySearchTree/BinarySearchTree');
-// Const BSTNode = require('../data-structures/BinarySearchTree/BSTNode');
+const BSTNode = require('../data-structures/BinarySearchTree/BSTNode');
 
 const bst = new BST('test-BST');
 
@@ -25,15 +25,15 @@ test.beforeEach(() => {
 });
 
 test('Binary Search Tree - insert, find', t => {
-  t.true(bst.find(2));
-  t.true(bst.find(3));
-  t.true(bst.find(4));
+  t.is(bst.find(2).element, 2);
+  t.is(bst.find(3).element, 3);
+  t.true(bst.find(4) instanceof BSTNode);
   t.false(bst.find(44));
   t.false(bst.find(19));
 });
 
 test('Binary Search Tree - isPresent, find', t => {
-  t.true(bst.find(2));
+  t.is(bst.find(2).element , 2);
   t.false(bst.find(19));
   // Expect false from both
   t.is(Boolean(bst.find(14)), bst.isPresent(14));
