@@ -50,7 +50,7 @@ module.exports = class MySet {
   /**
    * Returns the union of two sets
    * @param {MySet} set set to add to this set
-   * @returns {MySet | False} The union of the two old sets or false if unsuccessfull
+   * @returns {MySet} The union of the two old sets or false if unsuccessfull
    */
   union(set) {
     if (set instanceof MySet) {
@@ -63,7 +63,7 @@ module.exports = class MySet {
       });
       return resultSet;
     }
-    return false;
+    return new MySet();
   }
 
   /**
