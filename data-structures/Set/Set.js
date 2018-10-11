@@ -69,7 +69,7 @@ module.exports = class MySet {
   /**
    * Returns the intersection of two sets
    * @param {MySet} set set to add to this set
-   * @returns {MySet | False} The intersection of the two old sets or false if unsuccessfull
+   * @returns {MySet} The intersection of the two old sets or false if unsuccessfull
    */
   intersection(set) {
     if (set instanceof MySet) {
@@ -81,13 +81,13 @@ module.exports = class MySet {
       });
       return resultSet;
     }
-    return false;
+    return new MySet();
   }
 
   /**
    * Returns the difference between two sets
    * @param {MySet} set set to add to this set
-   * @returns {MySet | False} The difference between the two old sets or false if unsuccessfull
+   * @returns {MySet} The difference between the two old sets or false if unsuccessfull
    */
   difference(set) {
     if (set instanceof MySet) {
@@ -104,7 +104,7 @@ module.exports = class MySet {
       });
       return differenceSet;
     }
-    return false;
+    return new MySet();
   }
 
   /**
