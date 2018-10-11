@@ -33,7 +33,7 @@ test('Binary Search Tree - insert, find', t => {
 });
 
 test('Binary Search Tree - isPresent, find', t => {
-  t.is(bst.find(2).element , 2);
+  t.is(bst.find(2).element, 2);
   t.false(bst.find(19));
   // Expect false from both
   t.is(Boolean(bst.find(14)), bst.isPresent(14));
