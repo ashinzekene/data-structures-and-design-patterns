@@ -1,3 +1,5 @@
+const table = Symbol('table');
+
 module.exports = class HashTable {
   /**
    * A hast tab;e is usd toimplement associateive arrays or mappings of key value pairs.
@@ -5,7 +7,7 @@ module.exports = class HashTable {
    * @param {Number?} limit the storage limit. Default is 10
    */
   constructor(limit = 10) {
-    this.table = [];
+    this[table] = [];
     this.storageLimit = limit;
   }
 
@@ -29,11 +31,11 @@ module.exports = class HashTable {
    */
   add(key, val) {
     const index = this.hashFunction(key);
-    if (this.table[index] === undefined) {
-      this.table[index] = [[key, val]];
+    if (this[table][index] === undefined) {
+      this[table][index] = [[key, val]];
     } else {
       let replaced = false;
-      this.table[index] = this.table[index].map(x => {
+      this[table][index] = this[table][index].map(x => {
         if (x[0] === key) {
           replaced = true;
           return [val, x[1]];
@@ -41,7 +43,7 @@ module.exports = class HashTable {
         return x;
       });
       if (!replaced) {
-        this.table[index].push([key, val]);
+        this[table][index].push([key, val]);
       }
     }
   }
@@ -53,15 +55,15 @@ module.exports = class HashTable {
    */
   remove(key) {
     const index = this.hashFunction(key);
-    if (this.table[index]) {
-      const initialLength = this.table[index].length;
+    if (this[table][index]) {
+      const initialLength = this[table][index].length;
       // If only one item in that bucket and is the item to be removed
-      if (this.table[index].length === 1 && this.table[index][0][0] === key) {
-        Reflect.deleteProperty(this.table, index);
+      if (this[table][index].length === 1 && this[table][index][0][0] === key) {
+        Reflect.deleteProperty(this[table], index);
         return true;
       }
-      this.table[index] = this.table[index].filter(x => x[0] !== key);
-      return this.table[index].length !== initialLength;
+      this[table][index] = this[table][index].filter(x => x[0] !== key);
+      return this[table][index].length !== initialLength;
     }
     return false;
   }
@@ -73,8 +75,8 @@ module.exports = class HashTable {
    */
   lookup(key) {
     const index = this.hashFunction(key);
-    if (this.table[index]) {
-      const item = this.table[index].find(x => x[0] === key);
+    if (this[table][index]) {
+      const item = this[table][index].find(x => x[0] === key);
       if (item) {
         return item[1];
       }
@@ -84,6 +86,6 @@ module.exports = class HashTable {
   }
 
   empty() {
-    this.table = [];
+    this[table] = [];
   }
 };

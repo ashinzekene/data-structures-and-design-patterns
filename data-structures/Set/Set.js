@@ -1,7 +1,9 @@
+const collection = Symbol('collection');
+
 module.exports = class MySet {
   constructor(name = 'MySet') {
     this.name = name;
-    this.collection = [];
+    this[collection] = [];
   }
 
   /**
@@ -10,7 +12,7 @@ module.exports = class MySet {
    * @returns {Boolean} True if the element is in the set
    */
   has(element) {
-    return (this.collection.indexOf(element) !== -1);
+    return (this[collection].indexOf(element) !== -1);
   }
 
   /**
@@ -18,7 +20,7 @@ module.exports = class MySet {
    * @returns {Array} all items in the set
    */
   values() {
-    return this.collection;
+    return this[collection];
   }
 
   /**
@@ -28,7 +30,7 @@ module.exports = class MySet {
    */
   add(element) {
     if (!this.has(element)) {
-      this.collection.push(element);
+      this[collection].push(element);
       return true;
     }
     return false;
@@ -41,7 +43,7 @@ module.exports = class MySet {
    */
   remove(element) {
     if (this.has(element)) {
-      this.collection = this.collection.filter(x => x !== element);
+      this[collection] = this[collection].filter(x => x !== element);
       return true;
     }
     return false;
@@ -122,13 +124,13 @@ module.exports = class MySet {
   }
 
   get size() {
-    return this.collection.length;
+    return this[collection].length;
   }
 
   /**
    * Empties the set
    */
   empty() {
-    this.collection = [];
+    this[collection] = [];
   }
 };

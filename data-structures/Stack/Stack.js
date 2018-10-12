@@ -1,3 +1,5 @@
+const list = Symbol('list');
+
 module.exports = class Stack {
   /**
    * A stack is a list of elements that are accessible
@@ -5,7 +7,7 @@ module.exports = class Stack {
    * @param {String} name Name of the stack
    */
   constructor(name = 'stack') {
-    this.list = [];
+    this[list] = [];
     this.top = 0;
     this.name = name;
   }
@@ -15,7 +17,7 @@ module.exports = class Stack {
    * @param {any} x element to add to stack
    */
   push(x) {
-    this.list[this.top++] = x;
+    this[list][this.top++] = x;
   }
 
   /**
@@ -23,7 +25,7 @@ module.exports = class Stack {
    * @return {any} the element removed
    */
   pop() {
-    return this.list.pop();
+    return this[list].pop();
   }
 
   /**
@@ -31,7 +33,7 @@ module.exports = class Stack {
    * @return {Boolean} returns true if queue is empty
    */
   isEmpty() {
-    return !this.list.length;
+    return !this[list].length;
   }
 
   /**
@@ -39,14 +41,14 @@ module.exports = class Stack {
    * @returns {Number} the length of items in the array
    */
   get length() {
-    return this.list.length;
+    return this[list].length;
   }
 
   /**
    * Empties the stack
    */
   clear() {
-    this.list = [];
+    this[list] = [];
     this.top = 0;
   }
 
@@ -55,7 +57,7 @@ module.exports = class Stack {
    * @return {any} the last elemet in the stack
    */
   peek() {
-    return this.list[this.top - 1];
+    return this[list][this.top - 1];
   }
 
   /**
@@ -64,7 +66,7 @@ module.exports = class Stack {
    * @returns {String} the stack
    */
   toString(delimiter = ',') {
-    return this.list.join(delimiter);
+    return this[list].join(delimiter);
   }
 
   // Juicy Stuff
@@ -74,10 +76,10 @@ module.exports = class Stack {
   }
 
   [Symbol.iterator]() {
-    let i = this.list.length - 1;
+    let i = this[list].length - 1;
     return {
       next: (function () {
-        return {value: this.list[i--], done: i < -1};
+        return {value: this[list][i--], done: i < -1};
       }).bind(this)
     };
   }
