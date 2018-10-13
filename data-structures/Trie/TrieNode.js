@@ -11,6 +11,6 @@ module.exports = class TrieNode {
   }
 
   setEnd(end = false) {
-    this[isEnd] = end;
+    this[isEnd] = Boolean(end);
   }
 };

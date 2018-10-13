@@ -1,5 +1,3 @@
-const dataStore = Symbol('data-store');
-
 module.exports = class Queue {
   /**
    * A queue is a type of list where data are inserted at the end and are removed from the
@@ -7,7 +5,7 @@ module.exports = class Queue {
    * @param {String} name The name of the queue
    */
   constructor(name = 'queue') {
-    this[dataStore] = [];
+    this.dataStore = [];
     this.name = name;
   }
 
@@ -17,7 +15,7 @@ module.exports = class Queue {
    * @returns {Number} returns the lenth of th queue
    */
   enqueue(x) {
-    return this[dataStore].push(x);
+    return this.dataStore.push(x);
   }
 
   /**
@@ -25,21 +23,21 @@ module.exports = class Queue {
    * @returns {any} the element removed from the queue
    */
   dequeue() {
-    return this[dataStore].shift();
+    return this.dataStore.shift();
   }
 
   /**
    * Get the first element
    */
   get front() {
-    return this[dataStore][this[dataStore].length - 1];
+    return this.dataStore[this.dataStore.length - 1];
   }
 
   /**
    * Get the last element
    */
   get back() {
-    return this[dataStore][0];
+    return this.dataStore[0];
   }
 
   /**
@@ -47,7 +45,7 @@ module.exports = class Queue {
    * @returns {Number} the length of items in the array
    */
   get length() {
-    return this[dataStore].length;
+    return this.dataStore.length;
   }
 
   /**
@@ -55,14 +53,14 @@ module.exports = class Queue {
    * @returns {Boolean} true if queue is empty or otherwise
    */
   isEmpty() {
-    return !this[dataStore].length;
+    return !this.dataStore.length;
   }
 
   /**
    * Removes all items in the queue
    */
   clear() {
-    this[dataStore] = [];
+    this.dataStore = [];
   }
 
   /**
@@ -71,7 +69,7 @@ module.exports = class Queue {
    * @returns {String} the queue
    */
   toString(delimiter = ',') {
-    return this[dataStore].join(delimiter);
+    return this.dataStore.join(delimiter);
   }
 
   // Juicy Stuff
@@ -83,7 +81,7 @@ module.exports = class Queue {
   [Symbol.iterator]() {
     let i = 0;
     return {
-      next: () => ({value: this[dataStore][i++], done: i > this[dataStore].length - 1})
+      next: () => ({value: this.dataStore[i++], done: i > this.dataStore.length - 1})
     };
   }
 };
