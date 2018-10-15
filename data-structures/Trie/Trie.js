@@ -13,7 +13,7 @@ module.exports = class Trie {
    * @param {TrieNode?} node the node to append string to
    * @returns {void}
    */
-  add(string) {
+  _add(string) {
     let node = this.head;
     [...string].forEach((char, i) => {
       if (!node.keys.has(char)) {
@@ -24,6 +24,26 @@ module.exports = class Trie {
       }
       node = node.keys.get(char);
     });
+  }
+
+  /**
+   * Recursion implemtation (I prefer)
+   * Adds a word into a trie
+   * @param {String} string string tk append to trie
+   * @param {TrieNode?} node the node to append string to
+   * @returns {void}
+   */
+  add(string, node = this.head) {
+    if (string.length === 0) {
+      return;
+    }
+    if (!node.keys.has(string[0])) {
+      node.keys.set(string[0], new TrieNode());
+      if (string.length === 1) {
+        node.keys.get(string[0]).setEnd(true);
+      }
+    }
+    this.add(string.substr(1), node.keys.get(string[0]));
   }
 
   /**
@@ -63,5 +83,10 @@ module.exports = class Trie {
     search(this.head, '');
     return words;
   }
+
+  // Tremove(word, node = this.head) {
+  //   If node ahs has a child with more than one node, don't remove
+  //   If has a node with isEnd = true, move up
+  // }
 };
 
