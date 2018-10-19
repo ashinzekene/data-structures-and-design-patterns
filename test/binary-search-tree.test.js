@@ -15,13 +15,13 @@ test.beforeEach(() => {
   bst.insert(17);
   bst.insert(27);
   bst.insert(14);
-  bst.insert(32);
   bst.insert(14);
   bst.insert(17);
   bst.insert(18);
   bst.insert(21);
   bst.insert(14);
   bst.insert(23);
+  bst.insert(32);
 });
 
 test('Binary Search Tree - insert, find', t => {
@@ -42,5 +42,15 @@ test('Binary Search Tree - isPresent, find', t => {
 
 test('Binary Search Tree - findMin and findMax', t => {
   t.is(bst.findMin().element, 1);
+  bst.remove(1);
+  t.is(bst.findMin().element, 2);
   t.is(bst.findMax().element, 32);
+  bst.remove(32);
+  t.is(bst.findMax().element, 27);
+  bst.remove(27);
+  t.is(bst.findMax().element, 23);
 });
+
+// |test('Binary Search Tree - findMinHeight and findMaxHeight', t => {
+// |
+// |});

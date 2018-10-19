@@ -22,7 +22,7 @@ module.exports = class BinarySearchTree {
   /**
    * Checks if an element is in the tree
    * @param {Number} element Number to insert into the tree
-   * @return {Boolean} True if the element is present
+   * @return {Boolean} True if the element is inserted
    */
   insert(element) {
     element = BinarySearchTree.toNumber(element);
@@ -66,7 +66,7 @@ module.exports = class BinarySearchTree {
   find(x) {
     const element = BinarySearchTree.toNumber(x);
     if (!element) {
-      console.log('Can only insert a Number to a BST');
+      console.log('BST accepts only numbers');
       return false;
     }
     let node = this.head;
@@ -168,6 +168,45 @@ module.exports = class BinarySearchTree {
     return node;
   }
 
+  /**
+   * Returns the minimum height of the tree. The minimum height is calculated
+   * from the top of the tree to the closest node without a left and a right node
+   * @param {BSTNode} node the node to check the min height of
+   * @returns {Number} the minimum height of the tree
+   */
+  findMinHeight(node = this.head) {
+    if (node === null) {
+      return -1;
+    }
+    const left = this.findMinHeight(node.left);
+    const right = this.findMinHeight(node.right);
+    if (left < right) {
+      return left + 1;
+    }
+    return right + 1;
+  }
+
+  /**
+   * Returns the maximm height of the tree. The maximum height is calculated
+   * from the top of the tree to the farthest node
+   * @param {BSTNode} node the node to check the max height of
+   * @returns {Number} the maximum height of the tree
+   */
+  findMaxHeight(node = this.head) {
+    if (node === null) {
+      return -1;
+    }
+    const left = this.findMaxHeight(node.left);
+    const right = this.findMaxHeight(node.right);
+    if (left > right) {
+      return left + 1;
+    }
+    return right + 1;
+  }
+
+  /**
+   * Empties the tree
+   */
   emtpy() {
     this.head = null;
   }

@@ -22,7 +22,7 @@ test('TRIE: add, isWord', t => {
   t.false(trie.isWord('sandalee'));
 });
 
-test('TRIE:', t => {
+test('TRIE: getAll', t => {
   t.is(trie.getAll().length, 7);
   t.true(trie.getAll().includes('sandal'));
   t.true(trie.getAll().includes('sand'));

@@ -84,9 +84,30 @@ module.exports = class Trie {
     return words;
   }
 
-  // Tremove(word, node = this.head) {
-  //   If node ahs has a child with more than one node, don't remove
-  //   If has a node with isEnd = true, move up
-  // }
+  /**
+   * Removes a word from a trie
+   * @param {String} word string to remove
+   */
+  remove() {
+    //   If node has has a child with more than one node, don't remove
+    //   If has a node with isEnd = true, move down
+    // let string = word;
+    // let currentNode = this.head;
+    // /**
+    //  * Checks if a node should be removed
+    //  * @param {TrieNode} node node to check
+    //  * @returns {Boolean} true if node should be removed
+    //  */
+    // function shouldRemove(node) {
+    //   return node.isEnd && node.keys.size === 1;
+    // }
+    // while (string.length) {
+    //   currentNode.keys.get(string[0])
+    //   if (shouldRemove(currentNode)) {
+    //     currentNode = new
+    //     console.log('Removing...');
+    //   }
+    // }
+  }
 };
 
