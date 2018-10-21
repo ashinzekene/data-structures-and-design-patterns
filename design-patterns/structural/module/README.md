@@ -63,3 +63,19 @@ The disadvantage of the module pattern is that methods added to the module at a 
 ### Revealing Module Pattern
 
 Allows functions to be named differently from the publicly available API (different naimg scheme). It helps for better syntax
+
+```js
+const MyModule = (function() {
+  const privateValue = 12;
+  function privateMethod() {}
+  function publicMethod1() {}
+  function publicMethod2() {}
+  function publicMethod3() {}
+  return {
+    methd: privateMethod,
+    meth1: publicMethod1,
+    meth2: publicMethod2,
+    meth3: publicMethod3,
+  }
+})()
+```
