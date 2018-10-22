@@ -17,6 +17,11 @@ class Subject {
     this.observers.push(x)
   }
 
+  notify(result) {
+    console.log('calling with', result);
+    this.observers.forEach(observer => observer.update(result));
+  }
+
   removeObserver(i) {
     this.observers.splice(i, 1);
   }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Observers Sample</title>
+</head>
+<body>
+  <input type="text" name="text" id="text">
+  <button id="publish">Publish Change</button>
+  <button id="add-observer">Add Observer</button>
+  <div class="observer-container">
+
+  </div>
+  <script src="../index.js"></script>
+  <script>
+    const container = document.querySelector('.observer-container');
+    const input = document.querySelector('#text');
+    const publishButton = document.querySelector('button#publish');
+    const addObserverButton = document.querySelector('button#add-observer');
+
+    const newObserver = new Observer();
+    const subject = new Subject();
+
+    const extend = (obj, ext) => {
+      for (x in ext) {
+        obj[x] = ext[x];
+      }
+    }
+
+    const notify = () => {
+      subject.notify(input.value);
+    }
+
+    const addObserver = () => {
+      let x = document.createElement('li');
+      container.appendChild(x);
+      x.update = (value) => {
+        x.textContent = value;
+      }
+      subject.addObserver(x)
+      console.log(subject.observers);
+    }
+
+    addObserverButton.addEventListener('click', addObserver);
+    publishButton.addEventListener('click', notify);
+
+  </script>
+</body>
+</html>
