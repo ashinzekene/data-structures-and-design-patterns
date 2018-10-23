@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Publish-Subscribe</title>
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <h3>Welcome</h3>
+      <ul>
+        <li class="msg">Messages <span>0</span></li>
+        <li class="req">Requests <span>0</span></li>
+      </ul>
+    </div>
+
+    <div class="notifications">
+      <h2>Notifications</h2>
+      <ul></ul>
+    </div>
+
+    <div class="create-message">
+      <input placeholder="From" type="text"><br>
+      <textarea name="" id="" cols="30" rows="10"></textarea><br>
+      <button>Send Message</button>
+      <br>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="create-request">
+      <input placeholder="name of friend" type="text"><br>
+      <button>Send Request</button>
+      <br>
+    </div>
+  </div>
+  <script>
+    const PublishSubscribe = (() => {
+      let topics = {};
+      const generateToken = () => `sub-${parseInt(Math.random() * 100000)}`
+                                    .padEnd(12, '0');
+      return {
+        subscribe(topic, func) {
+          const token = generateToken();
+          if (!topics[topic]) {
+            topics[topic] = []
+          }
+          topics[topic].push({ token, func })
+          return token;
+        },
+        publish(topic, data) {
+          if (!topics[topic]) {
+            return !!console.log(`Topic: ${topic} does not exist`)
+          }
+          topics[topic].forEach(subscriber => {
+            subscriber.func(topic, data)
+          })
+        },
+        unsubscribe(token) {
+          Object.keys(topics).forEach(topic => {
+            topics[topic] = topics[topic].filter(topic => topic.token !== token)
+          });
+        }
+      }
+    })()
+
+
+    const createMsgButton = document.querySelector('.create-message button');
+    const msgFromInput = document.querySelector('.create-message input');
+    const msgInput = document.querySelector('.create-message textarea');
+    const createReqButton = document.querySelector('.create-request button');
+    const reqFromInput = document.querySelector('.create-request input');
+    const navMsgCount = document.querySelector('.navbar li.msg span');
+    const navReqCount = document.querySelector('.navbar li.req span');
+    const notificationContainer = document.querySelector('.notifications ul');
+
+    const msgNavSub = PublishSubscribe.subscribe('message', (token, data) => {
+      navMsgCount.textContent = ++navMsgCount.textContent;
+      console.log('Message Navigation Subscriber:', data);
+    })
+
+    const reqNavSub = PublishSubscribe.subscribe('request', (token, data) => {
+      navReqCount.textContent = ++navReqCount.textContent;
+      console.log('Request Navigation Subscriber:', data);
+    })
+
+    const msgNotSub = PublishSubscribe.subscribe('message', (token, data) => {
+      const li = document.createElement('li')
+      li.textContent = `New message from ${data.from} - ${data.message}`;
+      notificationContainer.appendChild(li);
+      console.log('Message Notification Subscriber:', data);
+    })
+
+    const reqNotSub = PublishSubscribe.subscribe('request', (token, data) => {
+      const li = document.createElement('li')
+      li.textContent = `New Request from ${data.from}`;
+      notificationContainer.appendChild(li);
+      console.log('Request Notification Subscriber:', data);
+    })
+
+    createMsgButton.addEventListener('click', e => {
+      PublishSubscribe.publish('message', {
+        from: msgFromInput.value,
+        message: msgInput.value
+      })
+    })
+
+    createReqButton.addEventListener('click', e => {
+      PublishSubscribe.publish('request', {
+        from: reqFromInput.value,
+      })
+    })
+
+  </script>
+</body>
+</html>

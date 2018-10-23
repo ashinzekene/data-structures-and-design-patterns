@@ -22,6 +22,11 @@ const PublishSubscribe = (() => {
       topics[topic].forEach(subscriber => {
         subscriber.func(topic, data)
       })
+    },
+    unsubscribe(token) {
+      Object.keys(topics).forEach(topic => {
+        topics[topic] = topics[topic].filter(topic => topic.token !== token)
+      });
     }
   }
 })()
@@ -38,6 +43,18 @@ const sub3 = PublishSubscribe.subscribe('mail/update', (topic, data) => {
 })
 
 run = async () => {
+  PublishSubscribe.publish('mail/inbox', {
+    from: 'Mr Ekene',
+    msg: `Hello Sir,
+     Please, Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa maiores iusto
+     perspiciatis fugiat ad laborum ab veritatis tenetur temporibus. Iure, commodi error
+     nihil rerum ducimus nulla iste doloribus libero unde.
+    `
+  })
+
+  PublishSubscribe.unsubscribe(sub1);
+  await delay(2000)
+
   PublishSubscribe.publish('mail/inbox', {
     from: 'Mr Ekene',
     msg: `Hello Sir,
