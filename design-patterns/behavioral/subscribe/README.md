@@ -13,12 +13,18 @@ const subscriber2 = subscribe('inbox/new-notification', notification => {
 })
 
 const subscriber3 = subscribe('inbox/new-message', msg => {
-  console.log('Subscriber 2: New Message', msg)
+  console.log('Subscriber 3: New Message', msg)
 })
 
 publish('inbox/new-message', {
   from: 'person@mail.com',
   message: 'Thanks for the subscription',
   date: 'some-day'
-}),
+})
+
+publish('inbox/new-notification', {
+  from: 'anotherperson@mail.com',
+  message: 'This is a new notification',
+  date: 'some-day'
+})
 ```
