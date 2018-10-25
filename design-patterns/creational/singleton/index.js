@@ -1,11 +1,11 @@
-const MySingleton = (function() {
-  let instance
+const MySingleton = (function () {
+  let instance;
   function privateMethod() {
-    return 1
+    return 1;
   }
   function init() {
-    const myNumber = Math.random();
-    let publicValue = 0
+    let myNumber = Math.random();
+    const publicValue = 0;
     function publicFunction() {
       return myNumber;
     }
@@ -16,15 +16,21 @@ const MySingleton = (function() {
       value: publicValue,
       func: publicFunction,
       getOne: privateMethod,
-      increment: function() {
+      increment() {
         privateFunction();
       }
-    }
+    };
   }
-  return function getInstance() {
-    if (!instance) {
-      instance = init()
+  return {
+    getInstance() {
+      if (!instance) {
+        instance = init();
+      }
+      return instance;
     }
-    return instance;
-  }
-})()
+  };
+})();
+
+const x = MySingleton.getInstance();
+const y = MySingleton.getInstance();
+console.log(x === y);

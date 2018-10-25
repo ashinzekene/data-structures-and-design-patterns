@@ -1,12 +1,14 @@
 class Observer {
   constructor() {
-    this.value = null
+    this.value = null;
   }
+
   update(val) {
-    this.value = val
+    this.value = val;
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 class Subject {
   constructor() {
     /** @type{Observer[]} */
@@ -14,7 +16,7 @@ class Subject {
   }
 
   addObserver(x = new Observer()) {
-    this.observers.push(x)
+    this.observers.push(x);
   }
 
   notify(result) {
@@ -27,6 +29,6 @@ class Subject {
   }
 
   getObserver(i) {
-    return this.observers[i]
+    return this.observers[i];
   }
 }

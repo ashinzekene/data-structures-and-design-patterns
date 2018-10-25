@@ -23,12 +23,6 @@
     const newObserver = new Observer();
     const subject = new Subject();
 
-    const extend = (obj, ext) => {
-      for (x in ext) {
-        obj[x] = ext[x];
-      }
-    }
-
     const notify = () => {
       subject.notify(input.value);
     }
