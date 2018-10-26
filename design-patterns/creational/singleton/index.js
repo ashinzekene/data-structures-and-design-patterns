@@ -1,9 +1,9 @@
-const MySingleton = (function () {
+const MySingleton = (() => {
   let instance;
-  function privateMethod() {
+  const privateMethod = () => {
     return 1;
-  }
-  function init() {
+  };
+  const init = () => {
     let myNumber = Math.random();
     const publicValue = 0;
     function publicFunction() {
@@ -20,7 +20,7 @@ const MySingleton = (function () {
         privateFunction();
       }
     };
-  }
+  };
   return {
     getInstance() {
       if (!instance) {

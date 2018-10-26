@@ -1,23 +1,23 @@
-const RevealingShoppingBagModule = (function () {
+const RevealingShoppingBagModule = (() => {
   let items = [];
-  function getItems() {
+  const getItems = () => {
     return items;
-  }
-  function addItem(item) {
+  };
+  const addItem = item => {
     items = [...items, item];
-  }
-  function removeItem(item) {
+  };
+  const removeItem = item => {
     items = items.filter(i => i !== item);
-  }
-  function removeAtIndex(i) {
+  };
+  const removeAtIndex = i => {
     items = items.filter((item, index) => i !== index);
-  }
-  function update(index, newItem) {
+  };
+  const update = (index, newItem) => {
     items = items.map((item, i) => i === index ? newItem : item);
-  }
-  function privateCount() {
+  };
+  const privateCount = () => {
     return items.length;
-  }
+  };
   return {
     addShoppingItem: addItem,
     getShoppingItems: getItems,

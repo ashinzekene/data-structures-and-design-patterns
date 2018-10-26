@@ -1,4 +1,4 @@
-const ShoppingBagModule = (function () {
+const ShoppingBagModule = (() => {
   let items = [];
   return {
     getItems() {
