@@ -1,7 +1,9 @@
 const addListener = (() => {
   const getElements = (sel, single) => {
     return single ?
+      // eslint-disable-next-line no-undef
       [window.document.querySelector(sel)] :
+      // eslint-disable-next-line no-undef
       [...window.document.querySelectorAll(sel)];
   };
   const addElementListeners = (elems, ev, func) => {
