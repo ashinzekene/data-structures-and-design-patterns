@@ -1,7 +1,7 @@
 # Data Structures
 
-- [x] ### Binary Search Tree
-- [x] ### DoubleLinkedList
+- [x] Binary Search Tree
+- [x] DoubleLinkedList
 - [x] HashTable
 - [x] LinkedList
 - [x] PriorityQueue
