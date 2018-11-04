@@ -9,7 +9,8 @@
 - [x] Set
 - [x] Stack
 - [x] Trie
-
+- [ ] Heap
+- [ ] Graphs
 
 
 ### Creational- Based on the concept of creating an object.

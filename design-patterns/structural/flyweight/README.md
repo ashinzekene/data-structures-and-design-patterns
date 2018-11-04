@@ -5,7 +5,7 @@ This is a pattern used in sotware design for optimization of code. It is used in
 This pattern reduces the number of object created. This is done by dividing object states into two categories: `intirinsic data` and `extrinsic data`.  Intrinsic data are information required for the initialization of the object. The object cannot function without this information. Extrinsic data are information that can be abstracted from from the object and stored externally.  
 
 
-**Flyweight Style**
+**Normal Style**
 ```js
 function Car (name, model, year, owner, tag) {
   this.name = name;
@@ -40,4 +40,29 @@ Car.prototype = {
     this.owner = newOwner;
   }
 }
+```
+
+**Flyweight Style**
+```js
+function Car(name, model, year) {
+  this.name = name;
+  this.model = model;
+  this.year = year;
+}
+
+const CarFactory = !function() {
+  const cars = {};
+  return {
+    createCar() {}
+  }
+}()
+
+const carManager = !function() {
+  const carDetails = {}
+  return {
+    registerCar(tag) {},
+    changeOwner(tag, newOwner) {},
+    renewRegistration(tag) {},
+  }
+}()
 ```
