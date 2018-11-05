@@ -20,7 +20,7 @@
 | Factory Method	| This makes an instance of several derived classes based on interfaced data or events. ✅
 | **Object**
 | Abstract Factory  | Creates an instance of several families of classes without concrete classes. ✅
-| Builder | Separates object construction from its representation, always creates the same of object.
+| Builder | Separates object construction from its representation, always creates the same of object. ✅
 | Prototype | A fully initialized instance used for copying or cloning. ✅
 | Singleton | A class with only a single instance with global access point ✅
 
