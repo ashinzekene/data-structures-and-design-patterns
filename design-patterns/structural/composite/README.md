@@ -37,7 +37,7 @@ Manager.prototype.addEmployee = function (employee) {
   this.employees.push(employee);
 };
 Manager.prototype.removeEmployee = function (empToRemove) {
-  this.employees.filter(employee => employee !== empToRemove);
+  this.employees = this.employees.filter(employee => employee !== empToRemove);
 };
 
 const genManager = new Manager('Ashinze Ekene', 2332000);
