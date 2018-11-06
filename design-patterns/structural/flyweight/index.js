@@ -29,6 +29,7 @@ Car.prototype = {
     this.owner = newOwner;
   }
 };
+Car.prototype.constructor = Car;
 
 const CarFactory = (function () {
   const cars = {};

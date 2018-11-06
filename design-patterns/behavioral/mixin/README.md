@@ -15,8 +15,9 @@ function SuperHero(firstName, lastName, superPower) {
 }
 
 function $_() {}
-$_.prototye = Person.prototype;
+$_.prototype = Person.prototype;
 SuperHero.prototype =  new $_();
+SuperHero.prototype.constructor = SuperHero
 // OR
 SuperHero.prototype = Object.create(Person.prototype);
 ```

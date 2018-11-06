@@ -8,6 +8,7 @@ Shape.prototype = {
   },
   clear() {}
 };
+Shape.prototype.constructor = Shape;
 
 function Coloring(lineColor = 'black', fill = 'black') {
   this.lineColor = lineColor;

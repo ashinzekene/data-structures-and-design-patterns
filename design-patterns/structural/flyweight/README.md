@@ -40,6 +40,7 @@ Car.prototype = {
     this.owner = newOwner;
   }
 }
+Car.prototype.constructor = Car;
 ```
 
 **Flyweight Style**

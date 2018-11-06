@@ -26,6 +26,7 @@ Shape.prototype = {
     // Remove circle
   }
 }
+Shape.prototype.constructor = Shape;
 
 function RedFillWhiteLineShape() {
   this.lineColor = 'white';
@@ -39,6 +40,7 @@ RedFillWhiteLineShape.prototype = {
     // Remove circle
   }
 }
+RedFillWhiteLineShape.prototype.constructor = RedFillWhiteLineShape;
 
 function BlueFillYellowLineShape() {
   this.lineColor = 'yellow';
@@ -51,8 +53,9 @@ BlueFillYellowLineShape.prototype = {
   clear() {
     // Remove circle
   }
-
 }
+BlueFillYellowLineShape.prototype.constructor = BlueFillYellowLineShape;
+
 const blueYellowShape = new BlueFillYellowLineShape();
 const redWhiteShape = new RedFillWhiteLineShape();
 blueYellowShape.draw();
