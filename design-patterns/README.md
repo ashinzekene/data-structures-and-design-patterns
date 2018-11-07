@@ -61,4 +61,6 @@ Examples: Observer, Mediator, Iterator, Visitor
 | Strategy  | Encapsulates an algorithm inside a class separating the selection from the implementation.
 | Visitor | Adds a new operation to a class without changing the class.
 
-[Learning JavaScript Design Patterns - Addy Osmani](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
+## Resources
+- [Learning JavaScript Design Patterns - Addy Osmani](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)  
+- [Pro JavaScript Design Patterns - Diaz, Dustin, Harmes, Ross](https://www.amazon.com/Pro-JavaScript-Design-Patterns-Object-Oriented/dp/159059908X)
