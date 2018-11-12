@@ -3,7 +3,7 @@
 This is a creational data structure that seperates a complex object's construction from its representation so that the same construction process can yield differnet representations.  
 The `builder pattern` aims at simplifying client while creating/configuring complex objects
 
-Objects partiipating in this pattern include:
+Objects partipating in this pattern include:
 
 - Director - respondible for construting products using the builder's multi-step mechanism
 - Builder - declares the steps used for constructing the product (Not present in JavaScript, it's an interface)
