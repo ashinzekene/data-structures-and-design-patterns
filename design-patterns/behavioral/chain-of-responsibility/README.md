@@ -1,7 +1,12 @@
 # Chain of Responsibility
 
-This design pattern decouples the sender and reciever of a request based on the type of request. A chain of objects is usually implemented
+This design pattern decouples the sender and reciever of a request based on the type of request. A chain of objects is usually implemented.
 
+
+## Participants
+- Handler - an interface that process requests received and/or passes on this request down the chain. It only has reference to one handler on the chain.
+- ConcreteHandler - these are the actual handlers that implements the `Handler` interface. They process requests or perfrom tasks in a sequential order
+- Client - this is the originator of the request. It has access to the root handler and passes requests down the chain through it.
 
 ```js
 function Logger() {}
