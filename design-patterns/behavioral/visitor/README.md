@@ -9,36 +9,36 @@ It is a type of behavioural pattern where a new functionality can be added a cla
 - ConcreteVisitable - This are classes which implement the `Visitable` interface.  It defines its own method for accepting a visitor as an argument and calls the visit method on it.
 
 ```js
-function AppLogger() {}
-AppLogger.prototype.logAge = function (visitor) {
-  return visitor.visit(this.age);
+function Toddler() {}
+Toddler.prototype.logAge = function (visitor) {
+  return visitor.visit(this);
 };
-AppLogger.prototype.setAge = function (age) {
+Toddler.prototype.setAge = function (age) {
   this.age = age;
 };
 
 function SimpleLogger() {}
-SimpleLogger.prototype.visit = function (age) {
-  return age;
+SimpleLogger.prototype.visit = function (toddler) {
+  return toddler.age;
 };
 
 function ComplexLogger() {}
-ComplexLogger.prototype.visit = function (age) {
-  return 'Age is ' + age;
+ComplexLogger.prototype.visit = function (toddler) {
+  return 'Age is ' + toddler.age;
 };
 
 function VerboseLogger() {}
-VerboseLogger.prototype.visit = function (age) {
-  return 'The age requested is' + age;
+VerboseLogger.prototype.visit = function (toddler) {
+  return 'The age requested is ' + toddler.age;
 };
 
-const myAppLogger = new AppLogger();
+const aToddler = new Toddler();
 const simpleLogger = new SimpleLogger();
 const complexLogger = new ComplexLogger();
 const verboseLogger = new VerboseLogger();
-myAppLogger.setAge('28');
-myAppLogger.logAge(simpleLogger);
-myAppLogger.logAge(complexLogger);
-myAppLogger.logAge(verboseLogger);
+aToddler.setAge(6);
+aToddler.logAge(simpleLogger);
+aToddler.logAge(complexLogger);
+aToddler.logAge(verboseLogger);
 
 ```
