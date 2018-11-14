@@ -52,7 +52,7 @@
 | Command ✅ | Encapsulate a command request as an object to enable, logging and/or queuing of requests, and provides error - handling for unhandled requests.
 | Iterator  | Sequentially access the elements of a collection without knowing the inner workings of the collection.
 | Mediator  | Defines simplified communication between classes to prevent a group of classes from referring explicitly to each other.
-| Memento | Capture an object's internal state to be able to restore it later.
+| Memento ✅ | Capture an object's internal state to be able to restore it later.
 | Observer ✅  | A way of notifying change to a number of classes to ensure consistency between the classes.
 | State | Alter an object's behavior when its state changes.
 | Strategy  | Encapsulates an algorithm inside a class separating the selection from the implementation.
