@@ -55,7 +55,7 @@
 | Memento ✅ | Capture an object's internal state to be able to restore it later.
 | Observer ✅  | A way of notifying change to a number of classes to ensure consistency between the classes.
 | State | Alter an object's behavior when its state changes.
-| Strategy  | Encapsulates an algorithm inside a class separating the selection from the implementation.
+| Strategy ✅ | Encapsulates an algorithm inside a class separating the selection from the implementation.
 | Visitor ✅ | Adds a new operation to a class without changing the class.
 
 
