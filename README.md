@@ -36,7 +36,7 @@
 | Adapter ✅ | Match interfaces of different classes therefore classes can work together incompatible interfaces. 
 | Bridge ✅  | Separates an object's interface from its implementation so the two can independently.
 | Composite ✅ | A structure of simple and composite objects which makes the total object than just the sum of its parts.
-| Decorator | Dynamically add alternate processing to objects.
+| Decorator ✅ | Dynamically add alternate processing to objects.
 | Facade ✅  | A single class that hides the complexity of an entire subsystem.
 | Flyweight ✅ | A fine-grained instance used for efficient sharing of information that contained elsewhere.
 | Proxy ✅| A place holder object representing the true object.
