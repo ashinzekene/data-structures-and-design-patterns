@@ -20,35 +20,35 @@ Animal.prototype.sound = function () {
 Animal.prototype.move = function () {
   return 'I am moving';
 };
-Animal.prototype.unrinate = function () {
+Animal.prototype.urinate = function () {
   return 'I am urinating';
 };
 
 function Dog(name) {
   Animal.call(this, name);
 }
-Dog.prototype = Animal.prototype;
+Dog.prototype = new Animal();
 Dog.prototype.constrctor = Dog;
 Dog.prototype.sound = function () {
-  return 'I am barking';
+  return 'A dog is barking';
 };
 
 function Horse(name) {
   Animal.call(this, name);
 }
-Horse.prototype = Animal.prototype;
+Horse.prototype = new Animal();
 Horse.prototype.constrctor = Horse;
 Horse.prototype.sound = function () {
-  return 'I am neighing';
+  return 'A horse am neighing';
 };
 Horse.prototype.move = function () {
-  return 'I am galloping';
+  return 'A horse is galloping';
 };
 
 const horse = new Horse('white horse');
-horse.sound();
-horse.urinate();
 const dog = new Dog('black dog');
-dog.sound();
-dog.move();
+console.log(horse.sound());
+console.log(horse.urinate());
+console.log(dog.sound());
+console.log(dog.move());
 ```

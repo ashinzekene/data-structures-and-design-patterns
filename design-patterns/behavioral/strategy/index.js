@@ -50,9 +50,9 @@ Tana.prototype.constructor = Tana;
 
 const tana = new Tana();
 const askyu = new Askyu();
-tana.kick();
+console.log(tana.kick());
 tana.setKickStrategy(new HardKick());
-tana.kick();
-askyu.jump();
+console.log(tana.kick());
+console.log(askyu.jump());
 askyu.setJumpStrategy(new ShortJump());
-askyu.jump();
+console.log(askyu.jump());
