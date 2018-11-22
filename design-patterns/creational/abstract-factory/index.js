@@ -11,11 +11,11 @@ function Red() {
 function Black() {
   this.color = 'white';
 }
-Blue.prototype = Color.prototype;
+Blue.prototype = new Color();
 Blue.prototype.constuctor = Blue;
-Red.prototype = Color.prototype;
+Red.prototype = new Color();
 Red.prototype.constuctor = Red;
-Black.prototype = Color.prototype;
+Black.prototype = new Color();
 Black.prototype.constuctor = Black;
 
 function ColorFactory() {

@@ -20,4 +20,6 @@ SuperHero.prototype =  new $_();
 SuperHero.prototype.constructor = SuperHero
 // OR
 SuperHero.prototype = Object.create(Person.prototype);
+// OR
+SuperHero.prototype = new Person();
 ```

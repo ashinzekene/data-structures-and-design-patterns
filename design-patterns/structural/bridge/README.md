@@ -62,39 +62,3 @@ blueYellowShape.draw();
 redWhiteShape.draw();
 ```
 [Bridge Pattern](./index.js)
-
-
-
-
-
-
-
-
-
-
-
-
-function Square(center, x) {
-  Shape.call(this)
-  this.center = center
-  this.x = x;
-}
-Square.prototype = Shape.prototype;
-Square.prototype.constructor = Square;
-
-function Rectangle(center, x, y) {
-  Shape.call(this)
-  this.center = center;
-  this.x = x;
-  this.y = y;
-}
-Rectangle.prototype = Shape.prototype;
-Rectangle.prototype.constructor = Rectangle;
-
-function Circle(center, r) {
-  Shape.call(this)
-  this.center = center;
-  this.r = r;
-}
-Circle.prototype = Shape.prototype;
-Circle.prototype.constructor = Circle;

@@ -55,9 +55,9 @@ function BungalowBuilder() {
 function StoreyBuildingBuilder() {
   this.house = new StoreyBuilding();
 }
-BungalowBuilder.prototype = Builder.prototype;
+BungalowBuilder.prototype = new Builder();
 BungalowBuilder.prototype.constructHouse = BungalowBuilder;
-StoreyBuildingBuilder.prototype = Builder.prototype;
+StoreyBuildingBuilder.prototype = new Builder();
 StoreyBuildingBuilder.prototype.constructHouse = StoreyBuildingBuilder;
 
 function CivilEngineer(builder) {
