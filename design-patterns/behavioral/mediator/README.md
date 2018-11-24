@@ -1,6 +1,9 @@
 # Mediator
 
-It makes interaction between objects easier as it alleviates the complextiy involved in performing this initeraction. 
+It makes interaction between objects easier as it alleviates the complextiy involved in performing this initeraction.
+It helps in decouping objects by creating a layer in between so that objects can interact using this layer.  
+Air traffic controller is an example of a mediator in real-life. It helps/ aids communication of different fights.   
+The mediator generally abstracts the complexity of communication between objects. 
 
 ```js
 function Participant(name) {
