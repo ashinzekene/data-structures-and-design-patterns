@@ -50,7 +50,13 @@ test('Binary Search Tree - findMin and findMax', t => {
   t.is(bst.findMax().element, 23);
 });
 
-test('Binary Search Tree - findMinHeight and findMaxHeight', t => {
-  console.log(bst.findMinHeight(), bst.findMaxHeight());
+test('Binary Search Tree - ⚠ findMinHeight and findMaxHeight', t => {
   t.true(bst.findMinHeight() < bst.findMaxHeight());
+});
+
+test('Binary Search Tree - ⚠ inOrder', t => {
+  const result = bst.inOrder();
+  t.is(result[0], 1);
+  t.is(result[1], 2);
+  t.is(result[result.length - 1], 32);
 });

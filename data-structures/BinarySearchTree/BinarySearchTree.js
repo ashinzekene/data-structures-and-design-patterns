@@ -209,6 +209,84 @@ module.exports = class BinarySearchTree {
   }
 
   /**
+   * Sort the nodes in a binary search tree from the smallest to the largetst
+   * elemnent
+   * @returns {Array | null}
+   */
+  inOrder() {
+    const result = [];
+    if (this.head === null) {
+      return null;
+    }
+    /**
+     * Transverses the node and picking out item at the right iteration
+     * @param {BSTNode} node element to transverse
+     */
+    function inOrderTransverse(node) {
+      if (node.left) {
+        inOrderTransverse(node.left);
+      }
+      result.push(node.element);
+      if (node.right) {
+        inOrderTransverse(node.right);
+      }
+    }
+    inOrderTransverse(this.head);
+    return result;
+  }
+
+  /**
+   * @return {Array | null}
+   */
+  preOrder() {
+    const result = [];
+    if (this.head === null) {
+      return null;
+    }
+    /**
+     * Transverses the node picking out item at the right iteration
+     * @param {BSTNode} node element to transverse
+     */
+    function preOrderTransverse(node) {
+      result.push(node.element);
+      if (node.left) {
+        preOrderTransverse(node.left);
+      }
+      if (node.right) {
+        preOrderTransverse(node.right);
+      }
+    }
+
+    /**
+     * @returns {Array}
+     */
+    preOrderTransverse(this.head);
+    return result;
+  }
+
+  postOrder() {
+    const result = [];
+    if (this.head === null) {
+      return null;
+    }
+    /**
+     * Transverses the node and picking out item at the right iteration
+     * @param {BSTNode} node element to transverse
+     */
+    function postOrderTransverse(node) {
+      if (node.left) {
+        postOrderTransverse(node.left);
+      }
+      if (node.right) {
+        postOrderTransverse(node.right);
+      }
+      result.push(node.element);
+    }
+    postOrderTransverse(this.head);
+    return result;
+  }
+
+  /**
    * Empties the tree
    */
   emtpy() {
