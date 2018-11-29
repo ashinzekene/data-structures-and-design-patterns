@@ -48,7 +48,7 @@ const CarFactory = (function () {
 const CarManager = (function () {
   const carsDetails = {};
   return {
-    addCarRecord(name, model, year, tag, owner, registered = false) {
+    addCarRecord({name, model, year, tag, owner, registered = false}) {
       const car = CarFactory.createCar(name, model, year, tag);
       if (!carsDetails[tag]) {
         carsDetails[tag] = {
@@ -71,7 +71,7 @@ const CarManager = (function () {
   };
 })();
 
-const myMercedez = CarManager.addCarRecord('mercedes', 'GL-550', 2018, 'ekene-1', 'Ekene', true);
+const myMercedez = CarManager.addCarRecord({name: 'mercedes', model: 'GL-550', year: 2018, tag: 'ekene-1', owner: 'Ekene', registered: true});
 console.log(myMercedez.renewDate);
 console.log(myMercedez.name);
 console.log(myMercedez.tag);

@@ -86,6 +86,7 @@ module.exports = class Trie {
 
   /**
    * Removes a word from a trie
+   * TODO: Implement remove from Trie
    * @param {String} word string to remove
    */
   remove() {

@@ -6,22 +6,21 @@ const bst = new BST('test-BST');
 
 test.beforeEach(() => {
   bst.emtpy();
-  bst.insert(1);
-  bst.insert(2);
-  bst.insert(3);
-  bst.insert(4);
+  bst.insert(32);
+  bst.insert(14);
+  bst.insert(21);
   bst.insert(12);
+  bst.insert(4);
+  bst.insert(23);
+  bst.insert(3);
   bst.insert(5);
   bst.insert(17);
+  bst.insert(2);
   bst.insert(27);
-  bst.insert(14);
-  bst.insert(14);
   bst.insert(17);
   bst.insert(18);
-  bst.insert(21);
+  bst.insert(1);
   bst.insert(14);
-  bst.insert(23);
-  bst.insert(32);
 });
 
 test('Binary Search Tree - insert, find', t => {
@@ -51,6 +50,7 @@ test('Binary Search Tree - findMin and findMax', t => {
   t.is(bst.findMax().element, 23);
 });
 
-// |test('Binary Search Tree - findMinHeight and findMaxHeight', t => {
-// |
-// |});
+test('Binary Search Tree - findMinHeight and findMaxHeight', t => {
+  console.log(bst.findMinHeight(), bst.findMaxHeight());
+  t.true(bst.findMinHeight() < bst.findMaxHeight());
+});

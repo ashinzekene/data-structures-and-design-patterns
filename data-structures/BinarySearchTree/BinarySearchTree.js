@@ -204,6 +204,10 @@ module.exports = class BinarySearchTree {
     return right + 1;
   }
 
+  isBalanced() {
+    return this.findMaxHeight() <= this.findMinHeight() + 1;
+  }
+
   /**
    * Empties the tree
    */
