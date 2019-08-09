@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/ashinzekene/algorithms-and-datastructures#readme",
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^2.2.0",
     "xo": "^0.23.0"
   },
   "xo": {
