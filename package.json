@@ -15,6 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/ashinzekene/algorithms-and-datastructures.git"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -23,7 +24,7 @@
   },
   "homepage": "https://github.com/ashinzekene/algorithms-and-datastructures#readme",
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^2.4.0",
     "xo": "^0.23.0"
   },
   "xo": {

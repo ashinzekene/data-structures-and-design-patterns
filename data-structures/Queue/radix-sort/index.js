@@ -8,7 +8,7 @@ const n = [12, 23, 52, 91, 31, 92, 22, 85, 15, 35, 46, 27, 93, 33, 21, 52];
  * @param {[Number]} numbers numbers to sort
  * @returns {[Number]} An array of the sorted numbers
  */
-module.exports = function (numbers = n) {
+module.exports = function exportFunction(numbers = n) {
   const queues1 = [];
   const queues10 = [];
   const queueResults1 = [];

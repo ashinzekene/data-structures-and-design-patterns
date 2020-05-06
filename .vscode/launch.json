@@ -7,20 +7,17 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Run AVA test",
-      "program": "${workspaceRoot}/node_modules/ava/profile.js",
+      "name": "Node Test file",
+      "program": "${file}",
       "args": [
-        "${file}"
-      ],
-      "skipFiles": [
-        "<node_internals>/**/*.js"
+        "--experimental-modules"
       ]
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "Node test",
-      "program": "node",
+      "name": "Run AVA test",
+      "program": "${workspaceRoot}/node_modules/ava/profile.js",
       "args": [
         "${file}"
       ],
